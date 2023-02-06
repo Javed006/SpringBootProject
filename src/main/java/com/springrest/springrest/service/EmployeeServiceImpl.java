@@ -6,11 +6,13 @@ import java.util.*;
 
 import com.springrest.springrest.exception.AgeDoesNotFoundException;
 import com.springrest.springrest.pojo.Employee;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.springrest.springrest.dao.EmployeeDao;
 import com.springrest.springrest.entities.EmployeeDTO;
 @Service
+@Slf4j
 public class EmployeeServiceImpl implements EmployeeService{
 	@Autowired
 	private EmployeeDao employeeDao;
@@ -54,6 +56,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 	}
 	@Override
 	public EmployeeDTO updEmployee(Employee employee) {
+		log.info("Javeed");
 		EmployeeDTO employeeDTO1 =employeeDao.findByeId(employee.getEId());
 		employeeDTO1.setName("javed");
 		employeeDTO1.setAge(22);
